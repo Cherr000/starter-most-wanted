@@ -7,7 +7,7 @@ function app(people){
   var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo);
   switch(searchType){
     case 'yes':
-      // TODO: search by name
+      searchByName(people);// TODO: search by name
       break;
     case 'no':
       // TODO: search by traits
@@ -53,7 +53,7 @@ function mainMenu(person, people){
 function searchByName(people){
   var firstName = promptFor("What is the person's first name?", chars);
   var lastName = promptFor("What is the person's last name?", chars);
-
+  mainMenu(person, people);
   // TODO: find the person using the name they entered
 
 }
@@ -78,7 +78,7 @@ function displayPerson(person){
 function promptFor(question, valid){
   do{
     var response = prompt(question);
-  } while(!response || !valid(response));
+  } while(!response /*|| !valid(response)*/);
   return response;
 }
 
