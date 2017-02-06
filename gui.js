@@ -32,7 +32,7 @@ function mainMenu(person, people){
 
 	switch(displayOption){
 		case "info":
-			// TODO: get person's info
+			displayPerson(person)// TODO: get person's info
 			break;
 		case "family":
 			// TODO: get person's family
@@ -53,7 +53,7 @@ function mainMenu(person, people){
 function searchByName(people){
   var firstName = promptFor("What is the person's first name?", chars);
   var lastName = promptFor("What is the person's last name?", chars);
-  mainMenu(person, people);
+  mainMenu(people);
   // TODO: find the person using the name they entered
 
 }
