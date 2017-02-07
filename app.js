@@ -4,6 +4,7 @@
 */
 
 function filterByName(firstName, lastName, people){
+	for (var i = 0; i < people.Length; i++)
 
 	// return an aray containing the people matching the name
 }
