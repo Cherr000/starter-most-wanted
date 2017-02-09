@@ -4,17 +4,30 @@
 */
 
 function filterByName(firstName, lastName, people){
-	for (var i = 0; i < people.Length; i++)
-
-	// return an aray containing the people matching the name
+var info = 0;
+	for ( i = 0; i < people.length; i++) {
+		if(firstName === people[i].firstName && lastName === people[i].lastName) {
+				info ++;
+				break;
+		}
+	}
+	
+	if ( info > 0) {
+		mainMenu(people[i],people);
+	}
+	else if ( info === 0) {
+		mainMenu(0,people);
+	}
 }
 
-function getFamily(person, people){
-
-	// return an array containing the family members (objects)
+function getSpouse(person, people){
+	for (var i = 0; i < people.length; i++) {
+		if (person.id == people[i].currentSpouse) {
+	        return people[i];
+	    }
+	}
+	var kids = people.filter(function(person) {
+    return person.parents.includes(person.id)
+  })
 }
-
-function getDescendants(person, people){
-
-	// return an array containing the descendants (objects)
-}
+//function getDescendants(person, people){}

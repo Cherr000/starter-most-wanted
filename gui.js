@@ -35,10 +35,10 @@ function mainMenu(person, people){
 			displayPerson(person);
 			break;
 		case "family":
-			// TODO: get person's family
+      displaySpouse(getSpouse(person, people));
 			break;
 		case "descendants":
-			// TODO: get person's descendants
+			getDescendants(person)// TODO: get person's descendants
 			break;
 		case "restart":
 			app(people); // restart
@@ -53,10 +53,7 @@ function mainMenu(person, people){
 function searchByName(people){
   var firstName = promptFor("What is the person's first name?", chars);
   var lastName = promptFor("What is the person's last name?", chars);
-  console.log(firstName, lastName);
   filterByName(firstName, lastName, people);
-  // TODO: find the person using the name they entered
-
 }
 
 // alerts a list of people
@@ -79,6 +76,13 @@ function displayPerson(person){
   personInfo += "occupation: " + person.occupation + "\n";
   // TODO: finish getting the rest of the information to display
   alert(personInfo);
+}
+
+// family list
+function displaySpouse(person){
+  var personFamily = "Spouse: " + person.firstName + " " + person.lastName + "\n";
+  personFamily += "Kids: " + person.parents.firstName + " " + person.parents.lastName + "\n";
+  alert(personFamily);
 }
 
 // function that prompts and validates user input
