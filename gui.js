@@ -36,9 +36,10 @@ function mainMenu(person, people){
 			break;
 		case "family":
       displaySpouse(getSpouse(person, people));
+      displaykids(getChildren(person, people));
 			break;
 		case "descendants":
-			getDescendants(person)// TODO: get person's descendants
+			// TODO: get person's descendants
 			break;
 		case "restart":
 			app(people); // restart
@@ -74,15 +75,24 @@ function displayPerson(person){
   personInfo += "weight: " + person.weight + "\n";
   personInfo += "eyeColor: " + person.eyeColor + "\n";
   personInfo += "occupation: " + person.occupation + "\n";
-  // TODO: finish getting the rest of the information to display
   alert(personInfo);
 }
 
 // family list
 function displaySpouse(person){
+  if(person){
   var personFamily = "Spouse: " + person.firstName + " " + person.lastName + "\n";
-  personFamily += "Kids: " + person.parents.firstName + " " + person.parents.lastName + "\n";
   alert(personFamily);
+  }else{
+    alert("No Spouse");
+  }
+}
+function displaykids(person) {
+  var personKids = "";
+  for (i = 0; i < person.length; i++){
+  personKids += "Children: " + person[i].firstName + " " + person[i].lastName + "\n";
+}
+  alert(personKids);
 }
 
 // function that prompts and validates user input

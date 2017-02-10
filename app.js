@@ -26,8 +26,13 @@ function getSpouse(person, people){
 	        return people[i];
 	    }
 	}
-	var kids = people.filter(function(person) {
-    return person.parents.includes(person.id)
-  })
 }
+function getChildren(person, people) {
+  var children = people.filter(function (family) {
+    return family.parents.includes(person.id);
+  });
+  console.log(children);
+  return children;
+}
+
 //function getDescendants(person, people){}
