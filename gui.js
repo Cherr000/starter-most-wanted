@@ -37,9 +37,11 @@ function mainMenu(person, people){
 		case "family":
       displaySpouse(getSpouse(person, people));
       displaykids(getChildren(person, people));
+      displaySibling(getSibling(person, people));
+      displayParents(getParents(person, people));
 			break;
 		case "descendants":
-			// TODO: get person's descendants
+			getDescendants (person, everyone, allDescendants = [])
 			break;
 		case "restart":
 			app(people); // restart
@@ -79,20 +81,35 @@ function displayPerson(person){
 }
 
 // family list
-function displaySpouse(person){
-  if(person){
+function displaySpouse(person) {
+  if (person) {
   var personFamily = "Spouse: " + person.firstName + " " + person.lastName + "\n";
   alert(personFamily);
-  }else{
+  }
+  else {
     alert("No Spouse");
   }
 }
 function displaykids(person) {
   var personKids = "";
-  for (i = 0; i < person.length; i++){
-  personKids += "Children: " + person[i].firstName + " " + person[i].lastName + "\n";
+  for (i = 0; i < person.length; i++) {
+    personKids += "Children: " + person[i].firstName + " " + person[i].lastName + "\n";
 }
   alert(personKids);
+}
+function displaySibling(person) {
+  var personSibs = "";
+  for (i = 0; i < person.length; i++) {
+    personSibs += "Siblings: " + person[i].firstName + " " + person[i].lastName + "\n";
+  }
+  alert(personSibs);
+}
+function displayParents(person) {
+  var personParents = "";
+  for (i = 0; i < person.length; i++) {
+    personParents += "Parents: " + person[i].firstName + " " + person[i].lastName + "\n";
+  }
+  alert(personParents);
 }
 
 // function that prompts and validates user input

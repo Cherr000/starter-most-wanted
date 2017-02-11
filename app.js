@@ -3,7 +3,7 @@
 	Some functions have been stubbed out.
 */
 
-function filterByName(firstName, lastName, people){
+function filterByName(firstName, lastName, people) {
 var info = 0;
 	for ( i = 0; i < people.length; i++) {
 		if(firstName === people[i].firstName && lastName === people[i].lastName) {
@@ -20,7 +20,8 @@ var info = 0;
 	}
 }
 
-function getSpouse(person, people){
+//getFamily
+function getSpouse(person, people) {
 	for (var i = 0; i < people.length; i++) {
 		if (person.id == people[i].currentSpouse) {
 	        return people[i];
@@ -34,5 +35,21 @@ function getChildren(person, people) {
   console.log(children);
   return children;
 }
+function getSibling(person, people) {
+	var sibling = "";
+	sibling = people.filter(function (family){		//four ways to be siblings here, including half siblings (which are siblings)
+		if (person.parents.length>=1){
+		return (person.parents[0]===family.parents[0]||person.parents[0]===family.parents[1]||
+			person.parents[1]===family.parents[0]||person.parents[1]===family.parents[1]);
+	}
+})
+  return sibling;
+}
+function getParents(person, people) {
+  var parents = people.filter(function (family) {
+    return person.parents.includes(family.id);
+  });
+  return parents;
+}
 
-//function getDescendants(person, people){}
+// Descendants Start Here
