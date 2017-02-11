@@ -37,12 +37,12 @@ function getChildren(person, people) {
 }
 function getSibling(person, people) {
 	var sibling = "";
-	sibling = people.filter(function (family){		//four ways to be siblings here, including half siblings (which are siblings)
+	sibling = people.filter(function (family) {
 		if (person.parents.length>=1){
 		return (person.parents[0]===family.parents[0]||person.parents[0]===family.parents[1]||
 			person.parents[1]===family.parents[0]||person.parents[1]===family.parents[1]);
-	}
-})
+		}
+	})
   return sibling;
 }
 function getParents(person, people) {

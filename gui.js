@@ -41,7 +41,7 @@ function mainMenu(person, people){
       displayParents(getParents(person, people));
 			break;
 		case "descendants":
-			getDescendants (person, everyone, allDescendants = [])
+			
 			break;
 		case "restart":
 			app(people); // restart
@@ -94,7 +94,7 @@ function displaykids(person) {
   var personKids = "";
   for (i = 0; i < person.length; i++) {
     personKids += "Children: " + person[i].firstName + " " + person[i].lastName + "\n";
-}
+  }
   alert(personKids);
 }
 function displaySibling(person) {
