@@ -133,7 +133,7 @@ function chars(input){
 // get trait
 function displayTraits(people) {
 
-    alert("Please answer the following questions, if you do not know the answer please leave blank");
+    alert("Please answer the following questions, if you do not know the answer please leave blank and hit OK to go to next questions");
 
     var personHeight = prompt("What is the person's height? ex: 75");
     var personWeight = prompt("How much does the person weigh? Ex: 165");
@@ -169,7 +169,7 @@ function getTraits(height,weight,gender,eyeColor,occupation, people) {
 function pickPerson(getTraitsList) {
   var tratisFilter="";
   for (var i=0; i < getTraitsList.length; i++) {
-    tratisFilter += (" Person: " + getTraitsList[i].firstName + " " + getTraitsList[i].lastName + ",");
+    tratisFilter += (" Person: " + getTraitsList[i].firstName + " " + getTraitsList[i].lastName + "\n");
   }
   alert(tratisFilter);
   return getTraitsList[0];
