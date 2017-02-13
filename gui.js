@@ -10,7 +10,7 @@ function app(people){
       searchByName(people);
       break;
     case 'no':
-      // TODO: search by traits
+      displayTraits(people)
       break;
     default:
       app(people); // restart app
@@ -41,7 +41,7 @@ function mainMenu(person, people){
       displayParents(getParents(person, people));
 			break;
 		case "descendants":
-			
+			//Still Need Todo
 			break;
 		case "restart":
 			app(people); // restart
@@ -53,7 +53,7 @@ function mainMenu(person, people){
 	}
 }
 
-function searchByName(people){
+function searchByName(people) {
   var firstName = promptFor("What is the person's first name?", chars);
   var lastName = promptFor("What is the person's last name?", chars);
   filterByName(firstName, lastName, people);
@@ -66,7 +66,7 @@ function displayPeople(people){
   }).join("\n"));
 }
 
-function displayPerson(person){
+function displayPerson(person) {
   // print all of the information about a person:
   // height, weight, age, name, occupation, eye color.
   var personInfo = "First Name: " + person.firstName + "\n";
@@ -130,3 +130,51 @@ function chars(input){
   return false; // default validation only
 }
 
+// get trait
+function displayTraits(people) {
+
+    alert("Please answer the following questions, if you do not know the answer please leave blank");
+
+    var personHeight = prompt("What is the person's height? ex: 75");
+    var personWeight = prompt("How much does the person weigh? Ex: 165");
+    var personGender = prompt("What gender is the person that you are looking for, 'male' or 'female'?");
+    var personEyeColor = prompt("What is the persons eye color?");
+    var personOccupation = prompt("What is the persons occupation? Ex: doctor");
+
+
+    var getTraitsList = getTraits(personHeight, personWeight, personGender, personEyeColor,personOccupation, people);
+    var selectedPerson = pickPerson(getTraitsList);
+    mainMenu(selectedPerson, people);
+}
+function getTraits(height,weight,gender,eyeColor,occupation, people) {
+  return people.filter(function(person) {
+    if (height && person.height !=height) {
+      return false;
+    }
+    if (weight && person.weight != weight) {
+      return false;
+    }
+    if (gender && person.gender != gender) {
+      return false;
+    }
+    if (eyeColor && person.eyeColor != eyeColor) {
+      return false;
+    }
+    if (occupation && person.occupation != occupation) {
+      return false;
+    }
+    return true;
+  });
+}
+function pickPerson(getTraitsList) {
+  var tratisFilter="";
+  for (var i=0; i < getTraitsList.length; i++) {
+    tratisFilter += (" Person: " + getTraitsList[i].firstName + " " + getTraitsList[i].lastName + ",");
+  }
+  alert(tratisFilter);
+  return getTraitsList[0];
+}
+
+function displayPickPerson (firstName,lastName) {
+  alert("Person: " + " " + tratisFilter);
+}

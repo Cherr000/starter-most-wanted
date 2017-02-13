@@ -7,8 +7,8 @@ function filterByName(firstName, lastName, people) {
 var info = 0;
 	for ( i = 0; i < people.length; i++) {
 		if(firstName === people[i].firstName && lastName === people[i].lastName) {
-				info ++;
-				break;
+			info ++;
+			break;
 		}
 	}
 	
@@ -38,7 +38,7 @@ function getChildren(person, people) {
 function getSibling(person, people) {
 	var sibling = "";
 	sibling = people.filter(function (family) {
-		if (person.parents.length>=1){
+		if (person.parents.length>=1) {
 		return (person.parents[0]===family.parents[0]||person.parents[0]===family.parents[1]||
 			person.parents[1]===family.parents[0]||person.parents[1]===family.parents[1]);
 		}
